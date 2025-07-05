@@ -43,8 +43,7 @@ cd flux
 cargo xtask install
 
 # Install Z3
-# This will install the z3 binary to ~/.cargo/bin
-# This will enable `cargo z3`
+# This will install the z3 binary to /usr/local
 cd ~
 git clone https://github.com/Z3Prover/z3.git
 cd z3
