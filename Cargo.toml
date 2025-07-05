@@ -1,0 +1,21 @@
+[package]
+name = "rust-refinement"
+version = "0.1.0"
+edition = "2024"
+
+[lints.rust]
+dead_code = "allow"
+
+[lib]
+name = "rust_refinement"
+path = "src/lib.rs"
+
+[[bin]]
+name = "bin"
+path = "src/main.rs"
+
+[dependencies]
+flux-rs = { git  = "https://github.com/flux-rs/flux.git" }
+
+[package.metadata.flux]
+enabled = true
