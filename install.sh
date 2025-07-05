@@ -10,6 +10,15 @@ fi
 
 cabal --version
 
+# Add to bashrc/zshrc
+if [ -f "$HOME/.bashrc" ]; then
+    echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >> "$HOME/.bashrc"
+    echo 'export PATH="$HOME/.cabal/bin:$PATH"' >> "$HOME/.bashrc"
+elif [ -f "$HOME/.zshrc" ]; then
+    echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >> "$HOME/.zshrc" 
+    echo 'export PATH="$HOME/.cabal/bin:$PATH"' >> "$HOME/.zshrc"
+fi
+
 # Install rustup
 if ! command -v rustup &> /dev/null
 then
