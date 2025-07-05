@@ -1,8 +1,16 @@
 # Rust Refinement
 
+This repo contains examples of refinement types.
+
 ## Usage
 
-Use `cargo build` and `cargo run` to build and see the failing output.
+### Without refinement types
+
+To see the failing output (i.e. stack overflow), use `cargo build` and `cargo run`.
+
+### With refinement types
+
+To see the compliation errors due to the refinement types, use `cargo flux`.
 
 Use `cargo flux` to see the compliation errors due to the refinement types.
 
