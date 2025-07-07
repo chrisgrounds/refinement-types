@@ -1,31 +1,30 @@
+#!/bin/sh
 # Install GHCup
-if ! command -v ghcup &> /dev/null
-then
-    echo "GHCup is not installed. Installing GHCup..."
-    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-    ghcup install cabal
+if ! command -v ghcup; then
+  echo "GHCup is not installed. Installing GHCup..."
+  curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+  ghcup install cabal
 else
-    echo "GHCup is already installed. Skipping installation."
+  echo "GHCup is already installed. Skipping installation."
 fi
 
 cabal --version
 
 # Add to bashrc/zshrc
 if [ -f "$HOME/.bashrc" ]; then
-    echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >> "$HOME/.bashrc"
-    echo 'export PATH="$HOME/.cabal/bin:$PATH"' >> "$HOME/.bashrc"
+  echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >>"$HOME/.bashrc"
+  echo 'export PATH="$HOME/.cabal/bin:$PATH"' >>"$HOME/.bashrc"
 elif [ -f "$HOME/.zshrc" ]; then
-    echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >> "$HOME/.zshrc" 
-    echo 'export PATH="$HOME/.cabal/bin:$PATH"' >> "$HOME/.zshrc"
+  echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >>"$HOME/.zshrc"
+  echo 'export PATH="$HOME/.cabal/bin:$PATH"' >>"$HOME/.zshrc"
 fi
 
 # Install rustup
-if ! command -v rustup &> /dev/null
-then
-    echo "Rustup is not installed. Installing Rustup..."
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+if ! command -v rustup; then
+  echo "Rustup is not installed. Installing Rustup..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 else
-    echo "Rustup is already installed. Skipping installation."
+  echo "Rustup is already installed. Skipping installation."
 fi
 
 # Liquid Fixpoint
