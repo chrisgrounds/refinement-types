@@ -6,6 +6,9 @@ else
   echo "GHCup is not installed. Installing GHCup..."
   curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
   ghcup install cabal
+
+  ghcup install ghc 9.10.1
+  ghcup set ghc 9.10.1
 fi
 
 cabal --version
@@ -14,7 +17,8 @@ cabal --version
 if [ -f "$HOME/.bashrc" ]; then
   echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >>"$HOME/.bashrc"
   echo 'export PATH="$HOME/.cabal/bin:$PATH"' >>"$HOME/.bashrc"
-elif [ -f "$HOME/.zshrc" ]; then
+fi
+if [ -f "$HOME/.zshrc" ]; then
   echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >>"$HOME/.zshrc"
   echo 'export PATH="$HOME/.cabal/bin:$PATH"' >>"$HOME/.zshrc"
 fi
