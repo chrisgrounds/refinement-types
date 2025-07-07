@@ -1,11 +1,11 @@
 #!/bin/sh
 # Install GHCup
-if ! command -v ghcup; then
+if ghcup --version; then
+  echo "GHCup is already installed. Skipping installation."
+else
   echo "GHCup is not installed. Installing GHCup..."
   curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
   ghcup install cabal
-else
-  echo "GHCup is already installed. Skipping installation."
 fi
 
 cabal --version
@@ -20,11 +20,11 @@ elif [ -f "$HOME/.zshrc" ]; then
 fi
 
 # Install rustup
-if ! command -v rustup; then
+if rustup --version; then
+  echo "Rustup is already installed. Skipping installation."
+else
   echo "Rustup is not installed. Installing Rustup..."
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-else
-  echo "Rustup is already installed. Skipping installation."
 fi
 
 # Liquid Fixpoint
